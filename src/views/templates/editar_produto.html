@@ -1,0 +1,5 @@
+{% extends 'formulario.html' %}
+{% block rota %}
+        <form action="{{ url_for('atualizar') }}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{{ id }}">
+{% endblock %}

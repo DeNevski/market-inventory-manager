@@ -1,0 +1,8 @@
+{% extends 'template.html' %}
+{% block conteudo %}
+        <body>
+            <h1 class="titulo">ESTOQUE DE COMÉRCIO</h1>
+            <a class="rotas__link" href="{{ url_for('visualizar_estoque') }}">Visualizar Estoque</a>
+            <a class="rotas__link" href="{{ url_for('adicionar_estoque') }}">Adicionar Produto</a>
+        </body>
+{% endblock %}

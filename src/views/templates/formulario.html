@@ -1,0 +1,51 @@
+{% extends 'template.html' %}
+{% block conteudo %}
+    <body>
+        {% block rota %} {% endblock %}
+            {{ form.csrf_token }}
+
+                <legend>{{ titulo }}</legend>
+
+                <div class="form_campos">
+                    {{ form.nome.label() }}
+                    {{ form.nome() }}
+                </div>
+                
+                <section class="form_grupo" >
+                    <div class="form_campos">
+                        {{ form.quantidade.label() }}
+                        {{ form.quantidade() }}
+                    </div>
+
+                    <div class="form_campos">
+                        {{ form.medida() }}
+                    </div>
+                </section>
+
+                <section class="form_grupo" >
+                    <div class="form_campos">
+                        {{ form.estocado.label() }}
+                        {{ form.estocado() }}
+                    </div>
+
+                    <div class="form_campos">
+                        {{ form.unidade() }}
+                    </div>
+                </section>
+
+                <div class="form_campos">
+                    {{ form.valor_unitario.label() }}
+                    {{ form.valor_unitario() }}
+                </div>
+
+                <div>
+                    {{ form.salvar(class="rotas__salvar") }}
+                    {% if 'Editar' in titulo %}
+                        <a class="rotas__voltar" href="{{ url_for('visualizar_estoque') }}">Voltar</a>
+                    {% else %}
+                        <a class="rotas__voltar" href="{{ url_for('index') }}">Voltar</a>
+                    {% endif %}
+                </div>
+        </form>
+    </body>
+{% endblock %}

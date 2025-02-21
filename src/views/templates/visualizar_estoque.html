@@ -1,0 +1,42 @@
+{% extends 'template.html' %}
+{% block conteudo %}
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    </head>
+        <body>
+            <h1 class="titulo">ESTOQUE</h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Quantidade</th>
+                        <th>Medida</th>
+                        <th>Estocado</th>
+                        <th>Unidade</th>
+                        <th>Valor Unitário</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produto in produtos %}
+                    <tr>
+                        <td>{{ produto.id }}</td>
+                        <td>{{ produto.nome }}</td>
+                        <td>{{ (produto.quantidade)|replace('.', ',') }}</td>
+                        <td>{{ produto.medida.value }}</td>
+                        <td>{{ produto.estocado }}</td>
+                        <td>{{ produto.unidade.value }}</td>
+                        <td>R$ {{ (produto.valor_unitario)|replace('.', ',') }}</td>
+                        <td>
+                            <a class="rotas__editar" href="{{ url_for('editar', id=produto.id) }}">Editar</a>
+                            <a class="rotas__deletar" href="{{ url_for('deletar', id=produto.id) }}">Deletar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <a class="rotas__voltar" href="{{ url_for('index') }}">Voltar</a>
+        </body>
+{% endblock %}

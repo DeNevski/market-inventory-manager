@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #808080;
+    font-family: Arial, sans-serif;
+}
+
+/* Tabela */
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background: #C0C0C0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #A9A9A9;
+    position: relative;
+}
+
+table th {
+    background-color: #4F4F4F;
+    color: #DCDCDC;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #D3D3D3;
+}
+
+/* Formulario */
+form {
+    background: #C0C0C0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form_campos {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form_campos label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form_campos input, .form_campos select  {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #A9A9A9;
+    border-radius: 4px;
+    background-color: 	#D3D3D3;
+}
+
+.form_campos select:after, .form_campos select:focus {
+    background-color: #A9A9A9;
+}
+
+.form_grupo {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.form_grupo .form_campos {
+    flex: 1;
+    min-width: 100px;
+}
+
+/* Botões */
+.rotas__editar, .rotas__deletar, .rotas__voltar,
+.rotas__salvar {
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white;
+    background: #363636;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.rotas__link {
+    display: block;
+    margin-top: 20px;
+    font-size: 1.5em;
+    text-decoration: none;
+    color: #000000;
+    transition: color 0.3s;
+}
+
+.rotas__deletar {
+    background: #FF0000;
+}
+
+.rotas__salvar {
+    background: #008000;
+}
+
+.rotas__voltar:hover, .rotas__editar:hover, .rotas__deletar:hover,
+.rotas__salvar:hover {
+    background: #4F4F4F;
+}
+
+.rotas__link:hover {
+    color: #DCDCDC;
+}
+
+.titulo {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #000000;
+}
