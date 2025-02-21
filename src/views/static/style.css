@@ -138,3 +138,11 @@ legend {
     margin-bottom: 20px;
     color: #000000;
 }
+
+.mensagem_flash {
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    top: 50px;
+    color:rgb(217, 231, 14);
+}

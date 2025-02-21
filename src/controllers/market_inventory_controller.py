@@ -1,7 +1,7 @@
 from src.models.entities.produtos_table import Produtos
 from src.configs import APP, DB
 from src.controllers.market_inventory_form import MarketStockForm
-from flask import request, redirect, url_for, render_template
+from flask import request, redirect, url_for, render_template, flash
 
 def produtos_list():
     with APP.app_context():
@@ -23,6 +23,7 @@ def adicionar():
     valor_unitario = form.valor_unitario.data
 
     if Produtos.query.filter_by(nome=nome, quantidade=quantidade, medida=medida).first():
+        flash('Esse produto já foi adicionado.')
         return redirect(url_for('index'))
     else:
         novo_produto = Produtos(nome=nome.title(), quantidade=quantidade, medida=medida, estocado=estocado, unidade=unidade, valor_unitario=valor_unitario)
@@ -30,6 +31,7 @@ def adicionar():
         DB.session.add(novo_produto)
         DB.session.commit()
 
+        flash('Produto adicionado com sucesso!')
         return redirect(url_for('index'))
 
 @APP.route('/editar/<int:id>')
@@ -63,6 +65,7 @@ def atualizar():
         DB.session.add(produto)
         DB.session.commit()
 
+    flash('Produto editado com sucesso!')
     return redirect(url_for('visualizar_estoque'))
 
 @APP.route('/deletar/<int:id>')
@@ -70,4 +73,5 @@ def deletar(id):
     Produtos.query.filter_by(id=id).delete()
     DB.session.commit()
 
+    flash('Produto deletado com sucesso!')
     return redirect(url_for('visualizar_estoque'))
